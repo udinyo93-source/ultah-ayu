@@ -4,21 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday 🎉</title>
+
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Segoe UI', sans-serif;
+    }
 
+    body {
+      font-family: 'Segoe UI', sans-serif;
       min-height: 100vh;
-      
+
       background: 
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('Desain tanpa judul.jpg') no-repeat center/cover;
+        url('Desain tanpa judul.jpg') no-repeat center center;
 
       background-size: cover;
-      
+
       text-align: center;
       color: white;
       overflow: hidden;
@@ -37,13 +40,20 @@
 
     button {
       margin-top: 20px;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 1em;
       border: none;
       border-radius: 10px;
       background: white;
       color: #ff6b81;
       cursor: pointer;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1, p {
+      position: relative;
+      z-index: 2;
     }
 
     @keyframes fadeIn {
@@ -51,64 +61,82 @@
       to {opacity: 1; transform: translateY(0);} 
     }
 
-    h1, p, button {
-      position: relative;
-      z-index: 2;
-    }
-
-    .balloon {
-      position: absolute;
-      bottom: -150px;
-      width: 50px;
-      height: 70px;
-      background: red;
-      border-radius: 50%;
-      animation: float 6s infinite;
-    }
-
     @keyframes float {
       0% { transform: translateY(0); }
       100% { transform: translateY(-120vh); }
     }
+
+    /* VIDEO POPUP */
+    #videoContainer {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+    }
+
+    /* BACKGROUND GELAP */
+    #videoContainer::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: -1;
+    }
+
+    iframe {
+      border-radius: 15px;
+    }
   </style>
 </head>
+
 <body>
 
-  <h1 id="title">Happy Birthday Ayu🎂</h1>
-  <p id="message">Semoga panjang umur, sehat selalu, dan bahagia. Lancar Skripsinya! 💖</p>
-  <button onclick="showVideo()">Tonton Dulu </button>
-  <div id="videoContainer" style="display:none; margin-top:20px;">
-  <iframe 
-    width="300" 
-    height="200" 
-    src="https://www.youtube.com/embed/INhMOPP4_48" 
-    frameborder="0" 
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
-</div>
+  <h1>Happy Birthday Ayu 🎂</h1>
+  <p>Semoga panjang umur, sehat selalu, dan bahagia. Lancar skripsinya! 💖</p>
 
-<script>
-function showVideo() {
-  document.getElementById("videoContainer").style.display = "block";
-}
+  <button onclick="showVideo()">Tonton Dulu 🎬</button>
 
-// Generate images
-for (let i = 0; i < 8; i++) {
-  let img = document.createElement("img");
-  img.src = "ayu.png";
-  img.style.position = "absolute";
-  img.style.bottom = "-100px";
-  img.style.width = "60px";
-  img.style.left = Math.random() * 100 + "vw";
+  <!-- VIDEO -->
+  <div id="videoContainer">
+    <iframe 
+      id="videoFrame"
+      width="350" 
+      height="220"
+      src=""
+      frameborder="0"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-  img.style.zIndex = "1";
-  img.style.animation = "float 6s linear infinite";
-  img.style.animationDuration = (4 + Math.random()*3) + "s";
+  <script>
+    function showVideo() {
+      document.getElementById("videoContainer").style.display = "block";
 
-  document.body.appendChild(img);
-}
-</script>
+      document.getElementById("videoFrame").src =
+        "https://www.youtube.com/embed/INhMOPP4_48?autoplay=1";
+    }
+
+    // Generate floating images
+    for (let i = 0; i < 8; i++) {
+      let img = document.createElement("img");
+      img.src = "ayu.png";
+      img.style.position = "absolute";
+      img.style.bottom = "-100px";
+      img.style.width = "60px";
+      img.style.left = Math.random() * 100 + "vw";
+      img.style.zIndex = "1";
+      img.style.animation = "float 6s linear infinite";
+      img.style.animationDuration = (4 + Math.random()*3) + "s";
+
+      document.body.appendChild(img);
+    }
+  </script>
 
 </body>
 </html>
