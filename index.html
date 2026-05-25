@@ -9,7 +9,7 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: 
-        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
         url('Desain tanpa judul.jpg') no-repeat center/cover;
       text-align: center;
       color: white;
@@ -43,6 +43,11 @@
       to {opacity: 1; transform: translateY(0);} 
     }
 
+    h1, p, button {
+      position: relative;
+      z-index 2;
+    }
+
     .balloon {
       position: absolute;
       bottom: -150px;
@@ -61,8 +66,8 @@
 </head>
 <body>
 
-  <h1 id="title">Happy Birthday 🎂</h1>
-  <p id="message">Semoga panjang umur, sehat selalu, dan bahagia! 💖</p>
+  <h1 id="title">Happy Birthday Ayu🎂</h1>
+  <p id="message">Semoga panjang umur, sehat selalu, dan bahagia. Lancar Skripsinya! 💖</p>
   <button onclick="playMusic()">Putar Musik 🎵</button>
 
   <audio id="music" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3"></audio>
@@ -76,11 +81,13 @@
     for (let i = 0; i < 8; i++) {
       let img = document.createElement("img");
       img.src = "ayu.png";
-      img.style.position = "absolute"
-      img.style.bottom = "-100px"
+      img.style.position = "absolute";
+      img.style.bottom = "-100px";
       img.style.width = "60px";
       img.style.left = Math.random() * 100 + "vw";
-      img.style.animation = "float 6s linier infinite";
+
+      img.stle.zIndex = "1";
+      img.style.animation = "float 6s linear infinite";
       img.style.animationDuration = (4 + Math.random()*3) + "s";
 
       document.body.appendChild(img);
