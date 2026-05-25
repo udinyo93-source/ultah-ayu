@@ -76,31 +76,34 @@
 
   <h1 id="title">Happy Birthday Ayu🎂</h1>
   <p id="message">Semoga panjang umur, sehat selalu, dan bahagia. Lancar Skripsinya! 💖</p>
-  <button onclick="playMusic()">Putar Musik 🎵</button>
+  <button onclick="showVideo()">Tonton Dulu </button>
+  <div id="videoContainer" style="display:none; margin-top:20px;">
+  <iframe 
+    width="300" 
+    height="200" 
+    src="https://www.youtube.com/embed/INhMOPP4_48" 
+    frameborder="0" 
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
+</div>
 
-  <audio id="music" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3"></audio>
 
-  <script>
-    function playMusic() {
-      document.getElementById("music").play();
-    }
+    // Generate images
+for (let i = 0; i < 8; i++) {
+  let img = document.createElement("img");
+  img.src = "ayu.png";
+  img.style.position = "absolute";
+  img.style.bottom = "-100px";
+  img.style.width = "60px";
+  img.style.left = Math.random() * 100 + "vw";
 
-    // Generate balloons
-    for (let i = 0; i < 8; i++) {
-      let img = document.createElement("img");
-      img.src = "ayu.png";
-      img.style.position = "absolute";
-      img.style.bottom = "-100px";
-      img.style.width = "60px";
-      img.style.left = Math.random() * 100 + "vw";
+  img.style.zIndex = "1";
+  img.style.animation = "float 6s linear infinite";
+  img.style.animationDuration = (4 + Math.random()*3) + "s";
 
-      img.style.zIndex = "1";
-      img.style.animation = "float 6s linear infinite";
-      img.style.animationDuration = (4 + Math.random()*3) + "s";
-
-      document.body.appendChild(img);
-    
-    }
+  document.body.appendChild(img);
+}
   </script>
 
 </body>
