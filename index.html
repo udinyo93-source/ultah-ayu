@@ -73,13 +73,18 @@
     }
 
     // Generate balloons
-    for (let i = 0; i < 10; i++) {
-      let balloon = document.createElement("div");
-      balloon.classList.add("balloon");
-      balloon.style.left = Math.random() * 100 + "vw";
-      balloon.style.background = `hsl(${Math.random()*360}, 70%, 60%)`;
-      balloon.style.animationDuration = (4 + Math.random()*3) + "s";
-      document.body.appendChild(balloon);
+    for (let i = 0; i < 8; i++) {
+      let img = document.createElement("img");
+      img.src = "ayu.png";
+      img.style.position = "absolute"
+      img.style.bottom = "-100px"
+      img.style.width = "60px";
+      img.style.left = Math.random() * 100 + "vw";
+      img.style.animation = "float 6s linier infinite";
+      img.style.animationDuration = (4 + Math.random()*3) + "s";
+
+      document.body.appendChild(img);
+    
     }
   </script>
 
