@@ -88,8 +88,12 @@
   </iframe>
 </div>
 
+<script>
+function showVideo() {
+  document.getElementById("videoContainer").style.display = "block";
+}
 
-    // Generate images
+// Generate images
 for (let i = 0; i < 8; i++) {
   let img = document.createElement("img");
   img.src = "ayu.png";
@@ -104,7 +108,7 @@ for (let i = 0; i < 8; i++) {
 
   document.body.appendChild(img);
 }
-  </script>
+</script>
 
 </body>
 </html>
